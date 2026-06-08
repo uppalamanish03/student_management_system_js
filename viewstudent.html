@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>student details</title>
+    <style>
+        .nav{
+            width: 100%;
+            background-color:bisque;
+            padding: 20px 0;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+        }
+        table{
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th{
+            background-color: bisque;
+        }
+        a{
+            text-decoration: none;
+        }
+        a:hover{
+            color: blue;
+        }
+        </style>
+</head>
+<body>
+    <div class="nav">
+    <a href="dashboard.html">Dashboard</a> &nbsp;
+    <a href="addstudents.html">Add Student </a> &nbsp;
+    <a href="viewstudent.html">View Student Details</a> &nbsp;
+    <a href="logout.html">Logout</a>
+</div>
+
+    <h1>Student Details</h1>
+    <table>
+        
+        <tr>
+            <th>student_id</th>
+            <th>student_name</th>
+            <th>email</th>
+            <th>cgpa</th>
+            <th >edit</th>
+            <th>delete</th>
+        </tr>
+        <tbody id="tb">
+
+        </tbody>
+        
+    </table>
+    <br>
+    <script>
+
+        var tbody=document.getElementById('tb');
+        let stu=JSON.parse(localStorage.getItem("studentsman"))
+        stu.forEach(element => {
+            var tr=document.createElement('tr');
+            tr.innerHTML=`<td>${element.studentid}</td>
+            <td>${element.studentname}</td>
+            <td>${element.studentemail}</td>
+            <td>${element.cgpa}</td>
+            <td><button type="button" onclick="editstu('${element.studentid}')">edit</button></td>
+            <td><button type="button" onclick="deletestu('${element.studentid}')">Delete</button></td>&nbsp;`
+            tbody.appendChild(tr);
+        });
+        function deletestu(id){
+            let st=JSON.parse(localStorage.getItem("studentsman"));
+            st=st.filter((student)=>student.studentid!=id);
+            localStorage.setItem("studentsman",JSON.stringify(st));
+            location.reload();
+
+        }
+        function editstu(id){
+            localStorage.setItem("edit",id);
+            location.href='editstudent.html';
+        }
+        
+    </script>
+</body>
+</html>
