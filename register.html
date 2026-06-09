@@ -46,7 +46,7 @@
     </div>
     <div class="form">
     <h1>Register</h1>
-    <form  >
+    <form >
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required><br><br>
         <label for="email">Email:</label>
@@ -59,7 +59,15 @@
     </form>
     </div>
     <script>
+        
+
+
     function store(){
+        let pas=document.getElementById('password').value
+        if(pas.length<8){
+            alert('password length should be 8 characters')
+            location.href='register.html'
+        }
         event.preventDefault();
         var username=document.getElementById('username').value;
         var email=document.getElementById('email').value;
@@ -77,6 +85,7 @@
         localStorage.setItem(username,JSON.stringify(detail));
         location.href="login.html";
     }
+
 
 </script>
 </body>

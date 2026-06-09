@@ -11,65 +11,38 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body{
-            background-image: url("./cvr.jpg");
-            background-size: cover;
-
-
-        }
-        .form{
-            display: flex;
-            flex-direction: column;
-
-            align-items: center;
-            width: 300px;
-            margin: 0 auto;
-            margin-top: 20px;
-            border: 1px solid black;
-            padding: 0 50px;
-
-
-        }
-        form{
-            padding: 20px 0;
-        }
-        h1{
-            text-align: center;
-        }
-        .nav{
-            width: 100%;
-            background-color:bisque;
-            padding: 10px 0;
-            text-align: center;
-            text-decoration: none;
-            
-        }
-        a :hover{
-            color: blue;
-        }
-        .login{
-            text-align: center;
-        }
-
+            a{
+                text-decoration: none;
+            }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="nav">
-    <a href="home.html">home</a>&nbsp;
-        <a href="login.html">login</a>&nbsp;
-        <a href="register.html">Register</a>&nbsp;
+    <div class="container-fluid bg-primary p-3">
+    <div class="nav justify-content-between">
+        <div>
+    <button class="btn btn-primary text-white "><a href="dashboard.html" class="text-white">Dashboard</a> &nbsp; </button>
+    <button class="btn btn-primary text-white"><a href="addstudents.html" class="text-white">Add Student </a> &nbsp; </button>
+    <button class="btn btn-primary text-white"><a href="viewstudent.html" class="text-white">View Student Details</a> &nbsp; </button>
     </div>
-    <div class="form">
-    <h1>Login Page</h1>
-    <form >
-        <label for="username">Username:</label><br><br>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label><br><br>
-        <input type="password" id="password" name="password" required><br><br>
-        <div class="login"><button  type="button" value="Login" onclick="check()"> Login</button></div>
-    </form>
+    <button class="btn btn-primary text-white"><a href="logout.html" class="text-white">Logout</a></button>
     </div>
+</div>
+    <div class="form container mt-5 p-5 bg-light w-50 rounded">
+        <h1>Login</h1>
+        <form onsubmit="check()">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
     <script>
         function check(){
             event.preventDefault();
