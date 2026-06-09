@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,4 +63,97 @@
     </script>
     
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login page</title>
+    <style>
+        *{
+           
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: url("./cvr.jpg");
+            background-size: cover;
+
+
+        }
+        .form{
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 20px;
+            border: 1px solid black;
+            padding: 0 50px;
+
+
+        }
+        form{
+            padding: 20px 0;
+        }
+        h1{
+            text-align: center;
+        }
+        .nav{
+            width: 100%;
+            background-color:bisque;
+            padding: 10px 0;
+            text-align: center;
+            text-decoration: none;
+            
+        }
+        a :hover{
+            color: blue;
+        }
+        .login{
+            text-align: center;
+        }
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="nav">
+    <a href="home.html">home</a>&nbsp;
+        <a href="login.html">login</a>&nbsp;
+        <a href="register.html">Register</a>&nbsp;
+    </div>
+    <div class="form">
+    <h1>Login Page</h1>
+    <form >
+        <label for="username">Username:</label><br><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label><br><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <div class="login"><button  type="button" value="Login" onclick="check()"> Login</button></div>
+    </form>
+    </div>
+    <script>
+        function check(){
+            event.preventDefault();
+            var username=document.getElementById('username').value;
+        var password=document.getElementById('password').value;
+        var passd=localStorage.getItem(username);
+        var pass=JSON.parse(passd).password;
+        if(password==pass){
+            location.href='dashboard.html'
+        }
+        else{
+            alert('invalid username or password');
+            location.href='login.html'
+        }
+        }
+
+    </script>
+    
+</body>
+>>>>>>> main
 </html>
