@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "username": "UPPALA_MANISH",
+      "email": "vuppalamanish418@gmail.com",
+      "password": "Manish@03",
+      "id": "FF_d09-xs2k"
+    },
+    {
+      "username": "UPPALA_MANISH",
+      "email": "UPPALAMANISH2005@GMAIL.COM",
+      "password": "Manish@123",
+      "id": "Fej2iS3h3v8"
+    },
+    {
+      "username": "UPPALA_MANISH",
+      "email": "UPPALAMANISH2005@GMAIL.COM",
+      "password": "123",
+      "id": "V9oENSbWkxs"
+    }
+  ],
+  "students": [
+    {
+      "studentid": "23b81a67f1",
+      "studentname": "Manish",
+      "studentemail": "UPPALAMANISH2005@GMAIL.COM",
+      "cgpa": "10",
+      "id": "vLQbEaqonrA"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,134 +62,42 @@
     </form>
     </div>
     <script>
-        var studentid=document.getElementById('student-id');
-        var studentname=document.getElementById('student-name');
-        var studentemail=document.getElementById('student-email');
-        var cgpa=document.getElementById('CGPA');
-        var students=JSON.parse(localStorage.getItem("studentsman"));
-        var re=localStorage.getItem("edit");
-        students.forEach(element => {
-            if(element.studentid==re){
-                studentid.value=element.studentid;
-                studentname.value=element.studentname;
-                studentemail.value=element.studentemail;
-                cgpa.value=element.cgpa;
-            }
-        });
-        function update(){
-                students=JSON.parse(localStorage.getItem("studentsman"));
-            students.forEach(element => {
-                if(element.studentid==re){
-                    element.studentid=studentid.value;
-                    element.studentname=studentname.value;
-                    element.studentemail=studentemail.value;
-                    element.cgpa=cgpa.value;
-                }
-            });
-            localStorage.setItem("studentsman",JSON.stringify(students));
-            location.href="viewstudent.html";
+const studentid = document.getElementById("student-id");
+const studentname = document.getElementById("student-name");
+const studentemail = document.getElementById("student-email");
+const cgpa = document.getElementById("CGPA");
 
-        }
+const id = new URLSearchParams(window.location.search).get("id");
 
+async function loadStudent() {
+    const res = await fetch(`http://localhost:3000/students/${id}`);
+    const student = await res.json();
 
-    </script>
+    studentid.value = student.studentid;
+    studentname.value = student.studentname;
+    studentemail.value = student.studentemail;
+    cgpa.value = student.cgpa;
+}
+
+loadStudent();
+
+async function update() {
+    const updatedStudent = {
+        studentid: studentid.value,
+        studentname: studentname.value,
+        studentemail: studentemail.value,
+        cgpa: cgpa.value
+    };
+
+    const res = await fetch(`http://localhost:3000/students/${id}`, {
+        method: "PATCH",
+        
+        body: JSON.stringify(updatedStudent)
+    });
+
+        location.href = "viewstudent.html";
+    
+}
+</script>
 </body>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Student</title>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        h1{
-            text-align: center;
-        }
-        a{
-            text-decoration: none;
-        }
-        a:hover{
-            color: blue;
-        }
-        .nav{
-            width: 100%;
-            background-color:bisque;
-            padding: 20px 0;
-            text-align: center;
-            text-decoration: none;
-        }
-        .form{
-            width: 400px;
-            margin: 0 auto;
-            margin-top: 20px;
-            border: 1px solid black;
-            padding: 0 50px;
-
-        }
-        form{
-                padding: 20px 0;
-            }
-        </style>
-</head>
-<body>
-    <div class="nav">
-    <a href="dashboard.html">Dashboard</a> &nbsp;
-    <a href="addstudents.html">Add Student </a> &nbsp;
-    <a href="viewstudent.html">View Student Details</a> &nbsp;
-    <a href="logout.html">Logout</a>
-</div>
-<div class="form">
-    <h1>Edit Student</h1>
-    <form action="viewstudent.html">
-        <label for="student-id" >Student ID:</label>
-        <input type="text" id="student-id" name="student-id" value="23b81a67f1" required><br><br>
-        <label for="student-name" >Student Name:</label>
-        <input type="text" id="student-name" name="student-name" value="Manish" required><br><br>
-        <label for="student-email">Student Email:</label>
-        <input type="email" id="student-email" name="student-email" value="manish@example.com" required><br><br>
-        <label for="CGPA">CGPA:</label>
-        <input type="number" id="CGPA" name="CGPA" step="0.01" min="0" max="10" value="8.5" required><br><br>
-         <a
-        <href="viewstudent.html"><button type="button" value="Update Student" onclick="update()"> update</button></a>
-    </form>
-    </div>
-    <script>
-        var studentid=document.getElementById('student-id');
-        var studentname=document.getElementById('student-name');
-        var studentemail=document.getElementById('student-email');
-        var cgpa=document.getElementById('CGPA');
-        var students=JSON.parse(localStorage.getItem("studentsman"));
-        var re=localStorage.getItem("edit");
-        students.forEach(element => {
-            if(element.studentid==re){
-                studentid.value=element.studentid;
-                studentname.value=element.studentname;
-                studentemail.value=element.studentemail;
-                cgpa.value=element.cgpa;
-            }
-        });
-        function update(){
-                students=JSON.parse(localStorage.getItem("studentsman"));
-            students.forEach(element => {
-                if(element.studentid==re){
-                    element.studentid=studentid.value;
-                    element.studentname=studentname.value;
-                    element.studentemail=studentemail.value;
-                    element.cgpa=cgpa.value;
-                }
-            });
-            localStorage.setItem("studentsman",JSON.stringify(students));
-            location.href="viewstudent.html";
-
-        }
-
-
-    </script>
-</body>
->>>>>>> main
 </html>
