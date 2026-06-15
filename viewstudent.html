@@ -67,9 +67,10 @@
     <script>
       async function disp() {
         var tbody = document.getElementById("tb");
-        let details = await fetch("http://localhost:3000/students");
+        let details = await fetch("http://localhost:4000/viewstudent");
 
-        let stu = await details.json();
+        let data = await details.json();
+        let stu = data.students;  
         stu.forEach((element) => {
           var tr = document.createElement("tr");
           tr.innerHTML = `<td>${element.studentid}</td>

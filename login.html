@@ -73,8 +73,10 @@
         event.preventDefault();
         var username = document.getElementById("username").value;
         var password = document.getElementById("password").value;
-        let users = await fetch("http://localhost:3000/users");
-        let allusers = await users.json();
+        let users= await fetch("http://localhost:4000/login");
+        let all = await users.json();
+        let allusers=all.users;
+        
         if (
           allusers.some((u) => {
             return u.username === username && u.password === password;

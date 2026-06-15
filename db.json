@@ -26,6 +26,20 @@
       "studentemail": "UPPALAMANISH2005@GMAIL.COM",
       "cgpa": "10",
       "id": "vLQbEaqonrA"
+    },
+    {
+      "studentid": "23b81a67f0",
+      "studentname": "manideep",
+      "studentemail": "manigoud@gmail.com",
+      "cgpa": "9.6",
+      "id": "e68TmGmCFd8"
+    },
+    {
+      "studentid": "23b81a67g0",
+      "studentname": "rahul",
+      "studentemail": "rahul@gmail.com",
+      "cgpa": "9.59999",
+      "id": "kfN0-BW3IuM"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
